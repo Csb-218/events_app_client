@@ -5,7 +5,7 @@ export default function handler(req, res) {
         //our code
         const {email,eventId} = req.body;
         
-        axios.post(process.env.NEXT_PUBLIC_ENV_LOCAL_VARIABLE_2_ADD,req.body)
+        axios.post(`${process.env.DEVELOPMENT_ENV_VARIABLE}/allevents/add`,req.body)
         .then((response) => {console.log(response);})
         .catch((err) => {console.log(err);});
 

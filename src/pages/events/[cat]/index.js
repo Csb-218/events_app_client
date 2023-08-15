@@ -36,7 +36,7 @@ export default EventsPerCityPage;
 
 export async function getStaticPaths(){
 
-    const response = await axios.get(process.env.NEXT_PUBLIC_ENV_LOCAL_VARIABLE_1);
+    const response = await axios.get(`${process.env.DEVELOPMENT_ENV_VARIABLE}/events`);
     const events_categories = response.data;
     const allPaths = events_categories.map( ev => {
             return({
@@ -52,7 +52,7 @@ export async function getStaticPaths(){
 
 export async function getStaticProps(context){
     
-    const response = await axios.get(process.env.NEXT_PUBLIC_ENV_LOCAL_VARIABLE_2);
+    const response = await axios.get(`${process.env.DEVELOPMENT_ENV_VARIABLE}/allevents`);
     console.log(response,'hi')
     const allEvents = response.data;
     const id = context.params.cat;

@@ -8,9 +8,8 @@ const inter = Inter({ subsets: ['latin'] })
 export async function getServerSideProps(){
 
   //const {events_categories} = await import('data/data.json')
-  const response = await axios.get(process.env.NEXT_PUBLIC_ENV_LOCAL_VARIABLE_1);
-
-  const events_catagories = response.data;
+  const response = await axios.get(`${process.env.DEVELOPMENT_ENV_VARIABLE}/events`);
+  const events_catagories = await response.data;
   return{
     props:{
       data:events_catagories

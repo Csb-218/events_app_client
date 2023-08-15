@@ -73,7 +73,7 @@ export default SingleEventPage;
 
 export async function getStaticPaths(){
 
-    const response = await axios.get(process.env.NEXT_PUBLIC_ENV_LOCAL_VARIABLE_2);
+    const response = await axios.get(`${process.env.DEVELOPMENT_ENV_VARIABLE}/allevents`);
     const allEvents = response.data;
     const allPaths = allEvents.map( ev => {
         return({
@@ -93,7 +93,7 @@ export async function getStaticPaths(){
 export async function getStaticProps(context){
     //console.log(context);
     const id = context.params.id;
-    const response = await axios.get(process.env.NEXT_PUBLIC_ENV_LOCAL_VARIABLE_2);
+    const response = await axios.get(`${process.env.DEVELOPMENT_ENV_VARIABLE}/allevents`);
     const allEvents = response.data;
     const eventData = allEvents.find(e => e.id === id);
     return{
